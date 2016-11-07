@@ -54,7 +54,7 @@ class Vtb24CSVStatementParser(CsvStatementParser):
             stmt.account_id = line[0].replace('\'','')
 
         line[5] = line[5].replace(',','.')
-        line[7] = line[7].strip()
+        line[7] = line[7].lstrip(stmt.account_id).strip()
 
         # fill statement line according to mappings
         sl = super(Vtb24CSVStatementParser, self).parse_record(line)
